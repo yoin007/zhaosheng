@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎加入</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; /* 使内容垂直排列 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* 设置背景颜色 */
+            font-family: Arial, sans-serif; /* 设置字体 */
+        }
+
+        h3, p {
+            text-align: center; /* 文字居中 */
+            margin: 5px 0; /* 设置文字间距 */
+        }
+
+        hr {
+            width: 80%; /* 设置水平线宽度 */
+            margin: 10px 0; /* 设置水平线间距 */
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            margin-top: 20px; /* 设置图片与文字的间距 */
+            border-radius: 10px; /* 设置图片圆角 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 设置图片阴影 */
+        }
+
+        .container {
+            text-align: center; /* 容器内文字居中 */
+            width: 80%; /* 设置容器宽度 */
+        }
+    </style>
+    <script>
+        var imageIndex = parseInt(localStorage.getItem("imageIndex")) || 1;
+        var imageCount = 1; // 修改为实际图片数量
+
+        function changeImage() {
+            var img = document.getElementById("slideshow");
+            img.src = imageIndex + ".png";
+            imageIndex = (imageIndex % imageCount) + 1;
+            localStorage.setItem("imageIndex", imageIndex);
+        }
+    </script>
+</head>
+<body onload="changeImage()">
+    <div class="container">
+        <h3>欢迎扫码入群</h3>
+        <p>招生电话：88857277</p>
+        <p>学校位置：崂山区九水东路590号</p>
+        <hr>
+        <img id="slideshow" src="1.png">
+    </div>
+</body>
+</html>
